@@ -2,6 +2,10 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
 
+// Import other
+import { AppLayout } from "@components/layouts";
+import { CursorStateProvider } from "@contexts/CursorContext";
+
 // Import styles
 import "@styles/reset.scss";
 import "@styles/global.scss";
@@ -41,7 +45,11 @@ export default function CustomApp({ Component, pageProps }: AppProps) {
       </Head>
 
       <div className={`${eb_garamond.variable} ${cormorant_garamond.variable}`}>
-        <Component {...pageProps} />
+        <CursorStateProvider>
+          <AppLayout>
+            <Component {...pageProps} />
+          </AppLayout>
+        </CursorStateProvider>
       </div>
     </>
   );

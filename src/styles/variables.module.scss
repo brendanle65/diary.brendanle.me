@@ -33,3 +33,9 @@ $yellow: #ffc857;
 $brown: #442200;
 $blue: #2016ff;
 $red: #fb0202;
+
+// Accessible in javascript
+:export {
+  yellow: $yellow;
+  brown: $brown;
+}

@@ -1,0 +1,28 @@
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999 !important;
+  pointer-events: none;
+}
+
+/** Hide cursor on devices with no cursor */
+@media (pointer: none), (pointer: coarse) {
+  .cursor {
+    display: none;
+  }
+}
+
+.wrapper {
+  opacity: 0;
+  display: grid;
+  place-items: center;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: drop-shadow(0 10px 8px rgba(163, 160, 160, 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  border-radius: 5px;
+}
