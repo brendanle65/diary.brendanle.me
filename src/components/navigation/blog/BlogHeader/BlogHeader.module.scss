@@ -1,0 +1,49 @@
+@import "@styles/exports.module.scss";
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.button {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  color: var(--gray-700);
+  font-size: 14px;
+}
+
+.button:hover {
+  transition: transform 0.3s ease;
+  color: #000000;
+}
+
+.label {
+  position: relative;
+  margin-top: -1px;
+}
+
+.label::before {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  right: 0;
+  width: 100%;
+  height: 0.75px; /* Border thickness */
+  background: #000000; /* Border color */
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.button:hover .label::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+@media (max-width: $laptop) {
+  .note {
+    display: none;
+  }
+}

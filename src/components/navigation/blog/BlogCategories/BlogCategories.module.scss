@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  align-items: center;
+  color: var(--gray-500);
+  gap: 8px;
+  font-size: 14px;
+}
+
+.label {
+  z-index: 200;
+}
+
+.drag {
+  margin: 0 -24px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: lowercase;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item:hover {
+  color: #000000;
+}
+
+.item::after {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--gray-500);
+  margin-top: 2px;
+}
+
+.item:last-child::after {
+  display: none;
+}

@@ -16,6 +16,7 @@ button {
 *,
 *::before,
 *::after {
+  font-family: var(--font-eb-garamond);
   box-sizing: border-box;
 }
 
@@ -34,7 +35,6 @@ body {
   padding: var(--screen-margin-y) var(--screen-margin-x);
   display: flex;
   flex-direction: column;
-  font-family: var(--font-eb-garamond);
 }
 
 article {

@@ -1,0 +1,60 @@
+@import "@styles/exports.module.scss";
+
+$max-width: 400px;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--screen-margin-y) * 2);
+}
+
+.appHeader {
+  margin-bottom: 16px;
+}
+
+.appFooter {
+  margin-top: auto;
+  justify-self: flex-end;
+  padding-top: 16px;
+}
+
+.content {
+  margin: 16px 0;
+}
+
+.articleContainer {
+  margin-top: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 200px;
+
+  @media (max-width: $laptop) {
+    display: block;
+  }
+}
+
+.article {
+  max-width: $max-width;
+}
+
+.asideContainer {
+  width: max-content;
+
+  @media (max-width: $laptop) {
+    display: none;
+  }
+}
+
+.aside {
+  position: sticky;
+  margin-top: 50px;
+  top: var(--screen-margin-y);
+}
+
+.notes {
+  max-width: $max-width;
+
+  @media (max-width: $laptop) {
+    margin-top: 8px;
+  }
+}

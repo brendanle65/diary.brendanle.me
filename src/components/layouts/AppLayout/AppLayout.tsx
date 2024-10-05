@@ -11,7 +11,7 @@ interface AppLayoutProps {
 }
 
 /**
- * AppLayout is a layout component that wraps every page,
+ * Layout component that wraps every page,
  * providing the main header, footer, and a custom cursor.
  *
  * It also handles page transitions.
