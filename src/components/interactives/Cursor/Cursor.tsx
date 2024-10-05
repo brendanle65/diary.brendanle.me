@@ -8,7 +8,6 @@ import { CursorState, cursorStateContext } from "@contexts/CursorContext";
 import { PolaroidImage, SmileyFace } from "@components/displays";
 
 // import styles
-import variables from "@styles/variables.module.scss";
 import styles from "./Cursor.module.scss";
 
 interface CursorAnimate {
@@ -60,7 +59,7 @@ export const cursorAnimateMappings: Record<keyof typeof CursorState, CursorAnima
       height: 30,
       opacity: 1,
       mixBlendMode: "normal",
-      backgroundColor: ["#000000", variables.yellow],
+      backgroundColor: ["#000000", "var(--yellow)"],
       borderRadius: "50%",
     },
     transition: {
@@ -95,8 +94,8 @@ export const cursorAnimateMappings: Record<keyof typeof CursorState, CursorAnima
 };
 
 /**
- * A custom cursor element that follows the mouse position. It supplements the browser's default
- * cursor functionality.
+ * A custom cursor element that follows the mouse position.
+ * It supplements the browser's default cursor functionality.
  *
  * @component
  */

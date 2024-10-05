@@ -1,5 +1,3 @@
-@import "@styles/variables.module.scss";
-
 // Get rid of styles not caught by reset.scss
 a {
   font-family: inherit;
@@ -32,8 +30,8 @@ html {
 
 body {
   line-height: 120% !important;
-  min-height: calc(100vh - $screen-margin-y * 2);
-  padding: $screen-margin-y $screen-margin-x;
+  min-height: calc(100vh - var(--screen-margin-y) * 2);
+  padding: var(--screen-margin-y) var(--screen-margin-x);
   display: flex;
   flex-direction: column;
   font-family: var(--font-eb-garamond);
@@ -53,7 +51,7 @@ article {
   }
 
   a {
-    color: $gray-600;
+    color: var(--gray-600);
     text-decoration: underline;
     text-decoration-thickness: 0.75px;
   }

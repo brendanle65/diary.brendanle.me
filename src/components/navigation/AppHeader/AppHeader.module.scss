@@ -1,0 +1,36 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.logo {
+  font-size: 20px;
+}
+
+.link {
+  font-size: 14px;
+  cursor: none;
+}
+
+.blueprint {
+  color: var(--blue);
+}
+
+.about {
+  color: var(--gray-500);
+}
+
+.divider {
+  margin-right: auto;
+  margin-left: 0;
+  height: 0.75px;
+  border: 0;
+  background: var(--gray-300);
+}
+
+@media (max-width: 425px) {
+  .blueprint {
+    display: none;
+  }
+}

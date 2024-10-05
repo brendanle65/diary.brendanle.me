@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--screen-margin-y) * 2);
+}
+
+.appHeader {
+  margin-bottom: 8px;
+}
+
+.appFooter {
+  margin-top: auto;
+}

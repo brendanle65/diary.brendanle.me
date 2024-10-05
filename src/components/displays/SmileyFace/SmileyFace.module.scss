@@ -1,9 +1,7 @@
-@import "@styles/variables.module.scss";
-
 .smiley {
   width: 30px;
   height: 30px;
-  background-color: $yellow;
+  background-color: var(--yellow);
   border-radius: 50%;
 }
 
@@ -17,7 +15,7 @@
 .eye {
   height: 4px;
   width: 4px;
-  background-color: $brown;
+  background-color: var(--brown);
   border-radius: 50%;
 }
 
@@ -25,5 +23,5 @@
   margin: -2px auto 0 auto;
   width: 12px;
   height: 10px;
-  border-bottom: 2px solid $brown;
+  border-bottom: 2px solid var(--brown);
 }

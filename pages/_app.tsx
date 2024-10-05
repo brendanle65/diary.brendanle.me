@@ -8,6 +8,7 @@ import { CursorStateProvider } from "@contexts/CursorContext";
 
 // Import styles
 import "@styles/reset.scss";
+import "@styles/variables.scss";
 import "@styles/global.scss";
 import { EB_Garamond, Cormorant_Garamond } from "next/font/google"; // Import Fonts (Optimized By NextJS)
 

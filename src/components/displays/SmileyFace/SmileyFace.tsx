@@ -2,7 +2,6 @@
 import { motion, AnimationProps } from "framer-motion";
 
 // import styles
-import variables from "@styles/variables.module.scss";
 import styles from "./SmileyFace.module.scss";
 
 const transition: AnimationProps["transition"] = {
@@ -35,7 +34,7 @@ export function SmileyFace() {
         animate={{
           borderRadius: "50%",
           border: "2px solid transparent",
-          borderBottom: `2px solid ${variables.brown}`,
+          borderBottom: "2px solid var(--brown)",
           width: "17px",
         }}
         transition={transition}
