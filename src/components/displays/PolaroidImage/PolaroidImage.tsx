@@ -19,8 +19,6 @@ interface PolaroidImageProps {
 
   /** The alt text for the image, providing a description for accessibility and SEO. */
   alt: string;
-
-  [key: string]: any;
 }
 
 /**
@@ -34,13 +32,9 @@ export function PolaroidImage({
   alt,
   width = "220px",
   height = "220px",
-  ...rest
 }: PolaroidImageProps) {
   return (
-    <div
-      className={clsx(styles.container, className)}
-      {...rest}
-    >
+    <div className={clsx(styles.container, className)}>
       <img
         src={src}
         alt={alt}

@@ -1,0 +1,20 @@
+@import "@styles/exports.module.scss";
+
+.tag {
+  color: var(--red);
+  vertical-align: super;
+  font-size: 14px;
+  line-height: 0px;
+}
+
+.anchor {
+  color: var(--red);
+  text-decoration: none;
+  pointer-events: none;
+
+  @media (max-width: $laptop) {
+    text-decoration: underline;
+    pointer-events: all;
+    text-decoration-thickness: 0.75px;
+  }
+}

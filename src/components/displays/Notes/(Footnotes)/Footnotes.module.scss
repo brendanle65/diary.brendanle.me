@@ -1,0 +1,15 @@
+.container {
+  color: var(--red);
+  font-family: var(--font-cormorant-garamond);
+  line-height: 140%;
+
+  & + .container {
+    margin-top: 4px;
+  }
+}
+
+.index {
+  margin-top: 0.5px;
+  margin-right: 4px;
+  font-family: var(--font-eb-garamond);
+}

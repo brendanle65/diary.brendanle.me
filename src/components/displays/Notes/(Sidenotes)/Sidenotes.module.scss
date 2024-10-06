@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  gap: 12px;
+  color: var(--red);
+  font-family: var(--font-cormorant-garamond);
+  position: absolute;
+  margin-top: 5px;
+}
+
+.line {
+  width: 40px;
+  height: 0.5px;
+  margin-top: 11px;
+  padding-left: 20px;
+}
+
+.stroke {
+  background: var(--red);
+  height: 100%;
+}

@@ -5,6 +5,7 @@ import Head from "next/head";
 // Import other
 import { AppLayout } from "@components/layouts";
 import { CursorStateProvider } from "@contexts/CursorContext";
+import { AppStateProvider } from "@contexts/AppStateContext";
 
 // Import styles
 import "@styles/reset.scss";
@@ -46,11 +47,13 @@ export default function CustomApp({ Component, pageProps }: AppProps) {
       </Head>
 
       <div className={`${eb_garamond.variable} ${cormorant_garamond.variable}`}>
-        <CursorStateProvider>
-          <AppLayout>
-            <Component {...pageProps} />
-          </AppLayout>
-        </CursorStateProvider>
+        <AppStateProvider>
+          <CursorStateProvider>
+            <AppLayout>
+              <Component {...pageProps} />
+            </AppLayout>
+          </CursorStateProvider>
+        </AppStateProvider>
       </div>
     </>
   );

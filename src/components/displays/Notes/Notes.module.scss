@@ -1,0 +1,15 @@
+@import "@styles/exports.module.scss";
+
+.sidenotes {
+  @media (max-width: $laptop) {
+    display: none;
+  }
+}
+
+.footnotes {
+  display: none;
+
+  @media (max-width: $laptop) {
+    display: block;
+  }
+}

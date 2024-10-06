@@ -1,0 +1,22 @@
+.image {
+  transform: rotate(1deg);
+}
+
+// style sidenote annotations
+:global(.public-sidenotes) {
+  .colors {
+    :global(.public-note) {
+      width: 480px;
+    }
+  }
+
+  .less {
+    :global(.public-line) {
+      width: 65px;
+    }
+
+    :global(.public-note) {
+      width: 450px;
+    }
+  }
+}

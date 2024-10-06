@@ -3,6 +3,14 @@ import { BlogMetadata } from "@typings/blog";
 import { Category } from "@constants/categories";
 import { BlogHelmet } from "@components/seo";
 import { BlogLayout } from "@components/layouts";
+import { Notetag } from "@components/displays";
+import { PolaroidImage } from "@components/displays";
+
+// import notes
+import { notes } from "./Vespa.notes";
+
+// import styles
+import styles from "./Vespa.module.scss";
 
 export const metadata: BlogMetadata = {
   title: "Vespa 125",
@@ -34,6 +42,14 @@ export function Vespa() {
         categories={metadata.categories}
         published={metadata.published}
         edited={metadata.edited}
+        notes={notes}
+        aside={() => (
+          <PolaroidImage
+            className={styles.image}
+            src="/p/vespa-125/vespa.jpeg"
+            alt="AI image of a vespa"
+          />
+        )}
       >
         <article>
           <h1>{metadata.title}</h1>
@@ -41,15 +57,18 @@ export function Vespa() {
           <p>
             Vespa 125 <br />
             Vintage 1974 <br />
-            Driving Cedar Road <br />
+            Driving Pelican Road
+            <Notetag idx={1} />
           </p>
 
           <p>
-            Faded sea-green with beige seats. <br />
+            Faded sea-green with beige seats.
+            <Notetag idx={2} /> <br />
             Engine humming a comforting tune. <br />
             Only two wheels, who needs four? <br />
             Only one headlight, who needs two? <br />
             Nobody but me, who needs more?
+            <Notetag idx={3} />
           </p>
 
           <p>
@@ -66,10 +85,12 @@ export function Vespa() {
             All in a wicker basket, in the back. <br />
             The appetizer? The cool, breezy air <br />
             with the dewy tang of early Spring.
+            <Notetag idx={4} />
           </p>
 
           <p>
-            I can’t wait. Doing 45 in a 25. <br />
+            I can’t wait. Doing 45 in a 25.
+            <Notetag idx={5} /> <br />
             Passing by trees with new leaves, <br />
             School children playing volleyball, <br />
             And happy dogs being fed ice cream. <br />

@@ -1,11 +1,13 @@
 // import libraries
 import clsx from "clsx";
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
 import { motion } from "framer-motion";
 
 // import other
 import { BlogMetadata } from "@typings/blog";
 import { AppHeader, AppFooter, BlogHeader, BlogFooter, BlogCategories } from "@components/navigation";
+import { Note, Notes } from "@components/displays";
+import { appStateContext } from "@contexts/AppStateContext";
 
 // import style
 import styles from "./BlogLayout.module.scss";
@@ -18,6 +20,9 @@ type BlogHelmetProps = Pick<BlogMetadata, "categories" | "published" | "edited">
 
   /** The main content of the blog layout. */
   children: ReactNode;
+
+  /** Optional notes to render. */
+  notes?: Note[];
 
   /** Optional additional sticky element to be displayed alongside the main content. */
   aside?: () => JSX.Element;
@@ -35,21 +40,32 @@ export function BlogLayout({
   categories,
   published,
   edited,
+  notes,
   aside: Aside,
 }: BlogHelmetProps) {
+  const { isNotesOn } = useContext(appStateContext);
+
   return (
     <div className={clsx(styles.container, className)}>
       <AppHeader className={styles.appHeader} />
       <main>
-        <BlogHeader />
+        <BlogHeader withNotes={!!notes} />
 
         <div className={styles.content}>
           <BlogCategories categories={categories} />
 
           <div className={styles.articleContainer}>
-            <article className={styles.article}>{children}</article>
+            <article className={styles.article}>
+              <>{children}</>
+              {notes && (
+                <Notes
+                  content={notes}
+                  className={styles.notes}
+                />
+              )}
+            </article>
 
-            {Aside && (
+            {Aside && !isNotesOn && (
               <div className={styles.asideContainer}>
                 <motion.div
                   initial={{ opacity: 0, x: 10, y: 10, scale: 0.9 }}

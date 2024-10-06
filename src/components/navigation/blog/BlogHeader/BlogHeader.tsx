@@ -1,15 +1,18 @@
 // import libraries
 import clsx from "clsx";
 import { useRouter } from "next/router";
+import { useContext } from "react";
 
 // import other
 import { Button } from "@components/interactives";
+import { appStateContext } from "@contexts/AppStateContext";
 
 // import styles
 import styles from "./BlogHeader.module.scss";
 
 interface BlogHeaderProps {
   className?: string;
+  withNotes?: boolean; // Whether or not to display notes toggle button on uncollapsed layout
 }
 
 /**
@@ -18,8 +21,9 @@ interface BlogHeaderProps {
  *
  * @component
  */
-export function BlogHeader({ className }: BlogHeaderProps) {
+export function BlogHeader({ className, withNotes }: BlogHeaderProps) {
   const router = useRouter();
+  const { isNotesOn, setIsNotesOn } = useContext(appStateContext);
 
   return (
     <header className={clsx("public-blogHeader", className)}>
@@ -35,13 +39,18 @@ export function BlogHeader({ className }: BlogHeaderProps) {
           <span className={styles.label}>Go Home</span>
         </Button>
 
-        <Button className={clsx(styles.button, styles.note)}>
-          <ion-icon
-            name={true ? "eye-outline" : "eye-off-outline"}
-            suppressHydrationWarning={true}
-          />
-          <span className={styles.label}>{false ? "Enable" : "Disable"} Author’s Notes</span>
-        </Button>
+        {withNotes && (
+          <Button
+            className={clsx(styles.button, styles.note)}
+            onClick={() => setIsNotesOn(!isNotesOn)}
+          >
+            <ion-icon
+              name={isNotesOn ? "eye-outline" : "eye-off-outline"}
+              suppressHydrationWarning={true}
+            />
+            <span className={styles.label}>{!isNotesOn ? "Enable" : "Disable"} Author’s Notes</span>
+          </Button>
+        )}
       </nav>
     </header>
   );
