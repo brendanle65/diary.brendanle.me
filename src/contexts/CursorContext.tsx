@@ -21,6 +21,8 @@ export interface CursorExtras {
   image?: {
     src: string; // The source URL of the image.
     alt: string; // The textual description of the image.
+    width?: number; // In pixels
+    height?: number; // In pixels
   };
 }
 

@@ -1,0 +1,34 @@
+// style sidenote annotations
+:global(.public-sidenotes) {
+  .joke {
+    margin-left: 180px;
+  }
+
+  .ramen {
+    :global(.public-line) {
+      width: 200px;
+    }
+
+    :global(.public-note) {
+      width: 350px;
+    }
+  }
+
+  .hint {
+    margin-left: 85px;
+
+    :global(.public-line) {
+      width: 60px;
+    }
+  }
+
+  .drinks {
+    :global(.public-line) {
+      width: 100px;
+    }
+  }
+}
+
+.bold {
+  font-weight: 600;
+}

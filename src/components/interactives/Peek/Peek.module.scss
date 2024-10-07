@@ -1,0 +1,18 @@
+.peek {
+  cursor: none;
+  text-decoration: underline;
+  color: var(--gray-600);
+  text-decoration-thickness: 0.75px;
+}
+
+.peek:hover {
+  color: #000000;
+}
+
+/** Hide cursor on devices with no cursor */
+@media (pointer: none), (pointer: coarse) {
+  .peek {
+    color: black;
+    text-decoration: none;
+  }
+}

@@ -17,10 +17,10 @@ export const metadata: BlogMetadata = {
   description: "A poem about getting over a relationship by driving a Vespa.",
   keywords: ["Brendan Le", "poetry", "independence", "love", "vespa", "happiness"],
   author: "Brendan Le",
-  published: new Date("September 15, 2024"),
-  edited: new Date("September 15, 2024"),
+  published: new Date("October 7, 2024"),
+  edited: new Date("October 7, 2024"),
   blurb: "A poem about getting over a relationship.",
-  categories: [Category.POETRY, Category.LOVE],
+  categories: [Category.POETRY, Category.LOVE, Category.ALONE],
 };
 
 /**
@@ -47,7 +47,7 @@ export function Vespa() {
           <PolaroidImage
             className={styles.image}
             src="/p/vespa-125/vespa.jpeg"
-            alt="AI image of a vespa"
+            alt="cartoon image of a vespa"
           />
         )}
       >

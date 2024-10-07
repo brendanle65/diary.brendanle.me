@@ -1,0 +1,24 @@
+.polaroid {
+  transform: rotate(1.5deg);
+}
+
+.breadcrumb {
+  margin-left: 31.45px;
+}
+
+.counts {
+  margin-left: calc(31.45px + 75.04px);
+}
+
+// style sidenote annotations
+:global(.public-sidenotes) {
+  .reference {
+    :global(.public-line) {
+      width: 65px;
+    }
+
+    :global(.public-note) {
+      width: 450px;
+    }
+  }
+}

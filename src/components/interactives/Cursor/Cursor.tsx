@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 // import other
 import { useCursorPosition } from "@hooks/useCursorPosition";
-import { CursorState, cursorStateContext } from "@contexts/CursorContext";
+import { CursorExtras, CursorState, cursorStateContext } from "@contexts/CursorContext";
 import { PolaroidImage, SmileyFace } from "@components/displays";
 
 // import styles
@@ -22,76 +22,80 @@ interface CursorAnimate {
   transition?: Transition;
 }
 
-export const cursorAnimateMappings: Record<keyof typeof CursorState, CursorAnimate> = {
-  IDLE: {
-    animate: {
-      width: 25,
-      height: 25,
-      opacity: 1,
-      mixBlendMode: "difference",
-      backgroundColor: "#ffffff",
-      borderRadius: "50%",
-    },
-    transition: {
-      backgroundColor: {
-        duration: 0,
+function getCursorAnimateMappings(
+  cursorExtras: CursorExtras
+): Record<keyof typeof CursorState, CursorAnimate> {
+  return {
+    IDLE: {
+      animate: {
+        width: 25,
+        height: 25,
+        opacity: 1,
+        mixBlendMode: "difference",
+        backgroundColor: "#ffffff",
+        borderRadius: "50%",
+      },
+      transition: {
+        backgroundColor: {
+          duration: 0,
+        },
       },
     },
-  },
-  HOVER: {
-    animate: {
-      width: 9,
-      height: 9,
-      opacity: 1,
-      mixBlendMode: "normal",
-      backgroundColor: "#000000",
-      borderRadius: "50%",
-    },
-    transition: {
-      backgroundColor: {
-        duration: 0,
+    HOVER: {
+      animate: {
+        width: 9,
+        height: 9,
+        opacity: 1,
+        mixBlendMode: "normal",
+        backgroundColor: "#000000",
+        borderRadius: "50%",
+      },
+      transition: {
+        backgroundColor: {
+          duration: 0,
+        },
       },
     },
-  },
-  SMILEY: {
-    animate: {
-      width: 30,
-      height: 30,
-      opacity: 1,
-      mixBlendMode: "normal",
-      backgroundColor: ["#000000", "var(--yellow)"],
-      borderRadius: "50%",
-    },
-    transition: {
-      mixBlendMode: {
-        duration: 0,
+    SMILEY: {
+      animate: {
+        width: 30,
+        height: 30,
+        opacity: 1,
+        mixBlendMode: "normal",
+        backgroundColor: ["#000000", "var(--yellow)"],
+        borderRadius: "50%",
       },
-      backgroundColor: {
-        duration: 0.25,
+      transition: {
+        mixBlendMode: {
+          duration: 0,
+        },
+        backgroundColor: {
+          duration: 0.25,
+        },
       },
     },
-  },
-  POLAROID: {
-    animate: {
-      width: 50,
-      height: 55,
-      opacity: 1,
-      mixBlendMode: "normal",
-      backgroundColor: "#ffffff",
-      borderRadius: "0",
+    POLAROID: {
+      animate: {
+        width: 50,
+        height: 55,
+        opacity: 1,
+        mixBlendMode: "normal",
+        backgroundColor: "#ffffff",
+        borderRadius: "0",
+      },
     },
-  },
-  IMAGE: {
-    animate: {
-      width: 144,
-      height: 144,
-      opacity: 1,
-      mixBlendMode: "normal",
-      backgroundColor: "#ffffff",
-      borderRadius: "0",
+    IMAGE: {
+      animate: {
+        width: cursorExtras?.image?.width || 144,
+        height: cursorExtras?.image?.height || 144,
+        opacity: 1,
+        mixBlendMode: "normal",
+        backgroundColor: "#ffffff",
+        borderRadius: "0",
+      },
     },
-  },
-};
+  };
+}
 
 /**
  * A custom cursor element that follows the mouse position.
@@ -101,7 +105,7 @@ export const cursorAnimateMappings: Record<keyof typeof CursorState, CursorAnima
  */
 export function Cursor() {
   const { cursorState, cursorExtras } = useContext(cursorStateContext);
-  const { animate, transition } = cursorAnimateMappings[cursorState];
+  const { animate, transition } = getCursorAnimateMappings(cursorExtras)[cursorState];
   const { x, y } = useCursorPosition({
     width: animate.width,
     height: animate.height,
