@@ -20,7 +20,7 @@ export const metadata: BlogMetadata = {
   published: new Date("October 7, 2024"),
   edited: new Date("October 7, 2024"),
   blurb: "A poem about loneliness and a stuffed animal.",
-  categories: [Category.POETRY, Category.ALONE],
+  categories: [Category.POETRY, Category.ALONE, Category.PROSE],
   slug: "bluey",
 };
 

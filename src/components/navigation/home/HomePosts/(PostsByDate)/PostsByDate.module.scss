@@ -1,6 +1,9 @@
 .container {
   position: relative;
   min-height: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .title {
@@ -8,6 +11,10 @@
   color: black;
   display: inline-flex;
   flex-direction: column;
+}
+
+.list {
+  margin-top: -24px;
 }
 
 .link {
@@ -28,8 +35,8 @@
   color: var(--gray-500);
 }
 
-.article + .article {
-  margin-top: 24px;
+.article {
+  overflow: hidden;
 }
 
 .date {
@@ -81,4 +88,8 @@
   width: 100%;
   background: var(--gray-500);
   margin-top: -1px;
+}
+
+.hack {
+  height: 23.2px;
 }

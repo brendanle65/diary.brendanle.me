@@ -1,7 +1,7 @@
 // import libraries
 import clsx from "clsx";
 import { useContext } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 // import other
 import { Category } from "@constants/categories";
@@ -27,29 +27,31 @@ export function HomeCategories({ className }: HomeCategoriesProps) {
     <div className={clsx("public-categories", styles.container, className)}>
       <span className={clsx("public-text", styles.text, styles.select)}>Select Filter:</span>
       <Drag className={styles.drag}>
-        <ul className={styles.list}>
-          {["Everything", ...Object.values(Category)].map((category) => {
-            const selectedCategory: any = category === "Everything" ? null : category;
-            const isSelected = categoryFilter === selectedCategory;
-            return (
-              <li key={category}>
-                <Button
-                  className={clsx(styles.button, isSelected && styles.selected)}
-                  onClick={() => setCategoryFilter(selectedCategory)}
-                >
-                  <span className={clsx("public-text", styles.text)}>{category}</span>
-                  {isSelected && (
-                    <motion.span
-                      initial={{ width: 0 }}
-                      animate={{ width: "100%" }}
-                      className={clsx("public-border", styles.border)}
-                    ></motion.span>
-                  )}
-                </Button>
-              </li>
-            );
-          })}
-        </ul>
+        <AnimatePresence initial={false}>
+          <ul className={styles.list}>
+            {["Everything", ...Object.values(Category)].map((category) => {
+              const selectedCategory: any = category === "Everything" ? null : category;
+              const isSelected = categoryFilter === selectedCategory;
+              return (
+                <li key={category}>
+                  <Button
+                    className={clsx(styles.button, isSelected && styles.selected)}
+                    onClick={() => setCategoryFilter(selectedCategory)}
+                  >
+                    <span className={clsx("public-text", styles.text)}>{category}</span>
+                    {isSelected && (
+                      <motion.span
+                        initial={{ width: 0 }}
+                        animate={{ width: "100%" }}
+                        className={clsx("public-border", styles.border)}
+                      ></motion.span>
+                    )}
+                  </Button>
+                </li>
+              );
+            })}
+          </ul>
+        </AnimatePresence>
       </Drag>
     </div>
   );
