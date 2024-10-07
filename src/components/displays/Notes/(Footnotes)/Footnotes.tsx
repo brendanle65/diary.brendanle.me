@@ -17,11 +17,16 @@ export function Footnotes({ content, className }: FootnoteProps) {
     <ul className={clsx("public-footnotes", className)}>
       {content.map(({ children, idx, className }) => (
         <li
-          id={"note-" + idx}
           key={idx}
+          id={`footnote-${idx}`}
           className={clsx("public-note", styles.container, className)}
         >
-          <span className={styles.index}>{idx}.</span>
+          <a
+            href={`#notetag-${idx}`}
+            className={styles.index}
+          >
+            {idx}.
+          </a>
           <span>{children}</span>
         </li>
       ))}

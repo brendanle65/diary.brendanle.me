@@ -21,7 +21,8 @@ export function Notetag({ className, idx }: NotetagProps) {
       className={clsx("public-notetag", styles.tag, className)}
     >
       <a
-        href={"#note-" + idx}
+        id={`notetag-${idx}`}
+        href={`#footnote-${idx}`}
         className={styles.anchor}
       >
         {idx}

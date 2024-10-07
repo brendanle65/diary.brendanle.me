@@ -11,6 +11,7 @@
   color: var(--red);
   text-decoration: none;
   pointer-events: none;
+  margin-left: 1px;
 
   @media (max-width: $laptop) {
     text-decoration: underline;

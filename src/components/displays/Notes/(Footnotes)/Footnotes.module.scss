@@ -12,4 +12,9 @@
   margin-top: 0.5px;
   margin-right: 4px;
   font-family: var(--font-eb-garamond);
+  color: inherit;
+
+  text-decoration: underline;
+  pointer-events: all;
+  text-decoration-thickness: 0.75px;
 }
