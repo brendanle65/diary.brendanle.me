@@ -10,13 +10,14 @@ import { notes } from "./Undeservia.notes";
 
 export const metadata: BlogMetadata = {
   title: "Undeservia",
-  description: "A poem about you not deserving love ",
+  description: "A poem about feeling undeserving of love.",
   keywords: ["Brendan Le", "poetry", "love", "undeserving"],
   author: "Brendan Le",
   published: new Date("October 7, 2024"),
   edited: new Date("October 7, 2024"),
-  blurb: "A poem about you not deserving love.",
+  blurb: "A poem about feeling undeserving of love.",
   categories: [Category.POETRY, Category.LOVE],
+  slug: "undeservia",
 };
 
 /**

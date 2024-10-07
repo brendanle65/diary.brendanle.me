@@ -1,0 +1,44 @@
+.container {
+  color: var(--gray-500);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.select {
+  margin-top: 1px;
+  z-index: 200;
+}
+
+.text {
+  white-space: nowrap;
+}
+
+.drag {
+  margin: 0 -12px;
+  padding: 1px 0;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.button {
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1px;
+}
+
+.border {
+  display: inline;
+  height: 0.5px;
+  width: 100%;
+  background: var(--gray-500);
+}
+
+.selected {
+  color: black;
+}

@@ -1,9 +1,12 @@
 // import libraries
 import clsx from "clsx";
+import { useContext } from "react";
 
 // import other
 import { BlogMetadata } from "@typings/blog";
-import { Link, Drag } from "@components/interactives";
+import { Link } from "@components/interactives";
+import { Drag } from "@components/interactives";
+import { appStateContext } from "@contexts/AppStateContext";
 
 // import styles
 import styles from "./BlogCategories.module.scss";
@@ -18,6 +21,8 @@ type BlogCategoriesProps = Pick<BlogMetadata, "categories"> & {
  * @component
  */
 export function BlogCategories({ categories, className }: BlogCategoriesProps) {
+  const { setCategoryFilter } = useContext(appStateContext);
+
   return (
     <div className={clsx("public-categories", styles.container, className)}>
       <span className={styles.label}>categories:</span>
@@ -28,7 +33,12 @@ export function BlogCategories({ categories, className }: BlogCategoriesProps) {
               key={idx}
               className={styles.item}
             >
-              <Link href="/">{category}</Link>
+              <Link
+                href="/"
+                onClick={() => setCategoryFilter(category)}
+              >
+                {category}
+              </Link>
             </li>
           ))}
         </ul>

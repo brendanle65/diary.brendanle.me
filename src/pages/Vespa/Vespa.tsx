@@ -21,6 +21,7 @@ export const metadata: BlogMetadata = {
   edited: new Date("October 7, 2024"),
   blurb: "A poem about getting over a relationship.",
   categories: [Category.POETRY, Category.LOVE, Category.ALONE],
+  slug: "vespa-125",
 };
 
 /**

@@ -27,6 +27,7 @@ export const metadata: BlogMetadata = {
   edited: new Date("October 7, 2024"),
   blurb: "Get to know the author a little bit.",
   categories: [Category.PROSE],
+  slug: "about-the-writer",
 };
 
 /**
@@ -64,17 +65,15 @@ export function About() {
               Brendan Le is a web developer and designer by day and blogger by
               night. When he's not doing either of those things, you can find
               him trying not to </span>
-
           <Peek
             src="/p/about-the-writer/bouldering-fail.gif"
             alt="gif of someone failing while bouldering"
           >
             embarrass himself while bouldering
           </Peek>
-
           {/* prettier-ignore */}
           <span> or laughing at his own jokes he says in his head.</span>
-          <Notetag idx={1} />
+          <Notetag idx={1} />{" "}
           <span>
             He's also an amazing chef:{" "}
             <Peek

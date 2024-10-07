@@ -29,4 +29,7 @@ export interface BlogMetadata {
 
   /** A short snippet or summary of the blog post, displayed when listing the post. */
   blurb: string;
+
+  /** The url slug to this article. */
+  slug: string;
 }

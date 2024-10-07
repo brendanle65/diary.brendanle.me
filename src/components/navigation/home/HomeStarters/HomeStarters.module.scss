@@ -1,0 +1,21 @@
+.header {
+  font-size: 14px;
+}
+
+.link {
+  color: var(--gray-500);
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.link:hover {
+  color: black;
+}
+
+.border {
+  display: inline;
+  height: 0.75px;
+  width: 100%;
+  background: var(--gray-500);
+  margin-top: -3px;
+}

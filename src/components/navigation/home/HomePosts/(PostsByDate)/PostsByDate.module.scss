@@ -1,0 +1,84 @@
+.container {
+  position: relative;
+  min-height: 64px;
+}
+
+.title {
+  font-size: 16px;
+  color: black;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.link {
+  display: inline-block;
+}
+
+.link:hover .title {
+  color: var(--gray-500);
+}
+
+.link:hover .blurb {
+  color: var(--gray-400);
+}
+
+.blurb {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--gray-500);
+}
+
+.article + .article {
+  margin-top: 24px;
+}
+
+.date {
+  position: absolute;
+  top: 14px;
+  left: -10px;
+  transform-origin: top left;
+  transform: rotate(-90deg) translate(-100%, -100%);
+  font-size: 12px;
+  color: var(--gray-500);
+  z-index: 1;
+  background: white;
+  padding-left: 10px;
+  padding-right: 4px;
+  margin-top: -14px;
+}
+
+.lines {
+  position: absolute;
+  top: 0;
+  left: -20px;
+  height: 100%;
+  width: 8px;
+}
+
+.linesWrapper {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.vertical {
+  position: absolute;
+  left: 0px;
+  height: 100%;
+  border-left: 1px solid var(--gray-400);
+}
+
+.horizontal {
+  position: absolute;
+  bottom: 0;
+  border-bottom: 1px solid var(--gray-400);
+  width: 8px;
+}
+
+.border {
+  display: inline;
+  height: 0.5px;
+  width: 100%;
+  background: var(--gray-500);
+  margin-top: -1px;
+}
