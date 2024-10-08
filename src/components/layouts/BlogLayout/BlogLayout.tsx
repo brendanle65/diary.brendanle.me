@@ -1,13 +1,15 @@
 // import libraries
 import clsx from "clsx";
-import { ReactNode, useContext } from "react";
+import { ReactNode, useContext, useEffect } from "react";
 import { motion } from "framer-motion";
+import { usePageAnimate, PageAnimateProps } from "@hooks/usePageAnimate";
 
 // import other
 import { BlogMetadata } from "@typings/blog";
 import { AppHeader, AppFooter, BlogHeader, BlogFooter, BlogCategories } from "@components/navigation";
 import { Note, Notes } from "@components/displays";
 import { appStateContext } from "@contexts/AppStateContext";
+import { sequence, setters } from "./BlogLayout.animate";
 
 // import style
 import styles from "./BlogLayout.module.scss";
@@ -26,6 +28,12 @@ type BlogHelmetProps = Pick<BlogMetadata, "categories" | "published" | "edited">
 
   /** Optional additional sticky element to be displayed alongside the main content. */
   aside?: () => JSX.Element;
+
+  /**
+   * Optional animation settings to control page rendering animations. If not provided, a default
+   * page animation will run.
+   */
+  animation?: PageAnimateProps;
 };
 
 /**
@@ -42,11 +50,25 @@ export function BlogLayout({
   edited,
   notes,
   aside: Aside,
+  animation = {
+    initial: setters,
+    animate: sequence,
+  },
 }: BlogHelmetProps) {
+  const { scope, play, stop } = usePageAnimate(animation);
   const { isNotesOn } = useContext(appStateContext);
 
+  useEffect(() => {
+    play();
+
+    return () => stop();
+  }, []);
+
   return (
-    <div className={clsx(styles.container, className)}>
+    <div
+      ref={scope}
+      className={clsx(styles.container, className)}
+    >
       <AppHeader className={styles.appHeader} />
       <main>
         <BlogHeader withNotes={!!notes} />
