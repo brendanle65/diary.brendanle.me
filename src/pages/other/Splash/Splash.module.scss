@@ -1,0 +1,115 @@
+@import "@styles/exports.module.scss";
+
+.container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  position: absolute;
+
+  :global(img) {
+    height: 192px !important;
+    width: 192px !important;
+  }
+}
+
+.football {
+  left: calc(50% + 32px);
+  top: calc(50% - 32px);
+  transform: translate(-50%, -50%) rotate(-2deg);
+  z-index: 20;
+}
+
+.camera {
+  left: calc(50% - 6vw - 32px);
+  top: calc(50% + 3vh);
+  transform: translate(-50%, -50%) rotate(1deg);
+  z-index: 10;
+}
+
+.library {
+  left: 50%;
+  top: calc(50% + 9vh);
+  transform: translate(-50%, -50%);
+  z-index: 50;
+}
+
+.shower {
+  left: calc(50% - 32px);
+  top: 52%;
+  transform: translate(-50%, -50%) rotate(1deg);
+  z-index: 10;
+}
+
+.family {
+  left: calc(50% + 6vw);
+  top: 48%;
+  transform: translate(-50%, -50%) rotate(3deg);
+  z-index: 20;
+}
+
+.dinosaur {
+  left: calc(50% - 48px);
+  top: calc(50% - 48px);
+  transform: translate(-50%, -50%) rotate(-2deg);
+  z-index: 40;
+}
+
+.japan {
+  left: calc(50% + 96px);
+  top: calc(50% + 120px);
+  transform: translate(-50%, -50%) rotate(1deg);
+  z-index: 30;
+}
+
+@media (max-width: $laptop) {
+  .image {
+    :global(img) {
+      height: 150px !important;
+      width: 150px !important;
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  .dinosaur {
+    left: calc(50% - 32px);
+  }
+
+  .shower {
+    left: calc(50% + 8px);
+    top: calc(50% + 15vh);
+  }
+
+  .camera {
+    top: calc(50% + 20vh);
+  }
+
+  .japan {
+    left: calc(50% + 7vw);
+    top: calc(50% + 30vh);
+  }
+
+  .family {
+    top: 50%;
+    left: 50%;
+  }
+
+  .library {
+    left: calc(50% - 40px);
+  }
+
+  .image {
+    :global(img) {
+      height: 100px !important;
+      width: 100px !important;
+    }
+  }
+}

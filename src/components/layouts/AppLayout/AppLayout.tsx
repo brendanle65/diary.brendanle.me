@@ -1,10 +1,11 @@
 // import libraries
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
 
 // import other
 import { Cursor } from "@components/interactives";
+import { Splash } from "@pages/index";
 
 interface AppLayoutProps {
   children: ReactNode;
@@ -20,17 +21,22 @@ interface AppLayoutProps {
  */
 export function AppLayout({ children }: AppLayoutProps) {
   const { pathname } = useRouter();
+  const [isSplashAnimating, setIsSplashAnimating] = useState(true);
 
   return (
     <>
       <AnimatePresence mode="wait">
-        <motion.div
-          key={pathname}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
-        >
-          {children}
-        </motion.div>
+        {isSplashAnimating ? (
+          <Splash onAnimationComplete={() => setIsSplashAnimating(false)} />
+        ) : (
+          <motion.div
+            key={pathname}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            {children}
+          </motion.div>
+        )}
       </AnimatePresence>
 
       <Cursor />

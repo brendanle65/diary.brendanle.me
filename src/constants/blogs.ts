@@ -1,8 +1,8 @@
 // import other
-import { metadata as vespa } from "@pages/Vespa/Vespa";
-import { metadata as bluey } from "@pages/Bluey/Bluey";
-import { metadata as about } from "@pages/About/About";
-import { metadata as undeservia } from "@pages/Undeservia/Undeservia";
+import { metadata as vespa } from "@pages/p/Vespa/Vespa";
+import { metadata as bluey } from "@pages/p/Bluey/Bluey";
+import { metadata as about } from "@pages/p/About/About";
+import { metadata as undeservia } from "@pages/p/Undeservia/Undeservia";
 
 /** An array containing the metadata for all blog posts. */
 export const BLOGS_METADATA = [vespa, bluey, about, undeservia];

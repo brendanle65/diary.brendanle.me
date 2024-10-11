@@ -27,8 +27,9 @@ export function usePageAnimate({ initial, animate }: PageAnimateProps) {
     }
   }, []);
 
-  const run = () => {
+  const run = async () => {
     controls = play(animate);
+    await controls;
   };
 
   const stop = () => {
