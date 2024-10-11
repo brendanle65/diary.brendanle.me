@@ -8,13 +8,19 @@
     "dev": "serve development files",
     "start": "serve production files",
     "build": "build production files",
-    "lint": "lint development files"
+    "lint": "lint development files",
+    "deploy:preview": "deploy to a specified preview channel",
+    "deploy:live": "deploy from a specified preview channel to live website: $env:PREVIEW = 'staging'; yarn deploy:live",
+    "deploy:delete": "delete a specified preview channel"
   },
   "scripts": {
     "dev": "next dev",
     "start": "npx serve@latest out",
     "build": "next build",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy:preview": "yarn build && firebase hosting:channel:deploy",
+    "deploy:live": "firebase hosting:clone diary-brendanle-me:%PREVIEW% diary-brendanle-me:live",
+    "deploy:delete": "firebase hosting:channel:delete"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -29,6 +35,7 @@
     "@types/node": "^22.7.4",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
+    "firebase-tools": "^13.22.0",
     "typescript": "^5.6.2"
   }
 }
