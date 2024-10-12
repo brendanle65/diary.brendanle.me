@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "diary-brendanle-me",
+    "target": "diary",
     "public": "out",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   }

@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "brendanle-me"
-  }
+  },
+  "targets": {
+    "brendanle-me": {
+      "hosting": {
+        "diary": [
+          "diary-brendanle-me"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
