@@ -5,4 +5,5 @@ export enum Category {
   LOVE = "Love",
   ALONE = "Alone",
   PROSE = "Prose",
+  WEB_EXPRIMENT = "Web Experiments",
 }

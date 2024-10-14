@@ -48,11 +48,11 @@ export function Drag({ children, className, fadeWidth = 24 }: DragProps) {
     >
       <div
         style={{ width: width }}
-        className={clsx(styles.overlay, styles.left)}
+        className={clsx("public-dragLeft", styles.overlay, styles.left)}
       ></div>
       <div
         style={{ width: width }}
-        className={clsx(styles.overlay, styles.right)}
+        className={clsx("public-dragRight", styles.overlay, styles.right)}
       ></div>
       <motion.div
         ref={sliderRef}

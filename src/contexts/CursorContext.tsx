@@ -14,6 +14,7 @@ export enum CursorState {
   SMILEY = "SMILEY", // When you want to turn the cursor into a smiley face
   POLAROID = "POLAROID", // When you want to turn the cursor in a a polaroid selfie
   IMAGE = "IMAGE", // When you want to turn the cursor into an image
+  MASK = "MASK", // When you need to hide the cursor to turn into a mask
 }
 
 /** Extra information needed for updating/styling cursor. */

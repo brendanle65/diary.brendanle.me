@@ -5,3 +5,4 @@ export { About } from "./p/About/About";
 export { Vespa } from "./p/Vespa/Vespa";
 export { Bluey } from "./p/Bluey/Bluey";
 export { Undeservia } from "./p/Undeservia/Undeservia";
+export { Puedo } from "./p/Puedo/Puedo";

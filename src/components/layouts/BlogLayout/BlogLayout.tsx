@@ -1,6 +1,6 @@
 // import libraries
 import clsx from "clsx";
-import { ReactNode, useContext, useEffect } from "react";
+import { CSSProperties, ReactNode, useContext, useEffect } from "react";
 import { motion } from "framer-motion";
 import { usePageAnimate, PageAnimateProps } from "@hooks/usePageAnimate";
 

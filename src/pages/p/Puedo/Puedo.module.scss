@@ -1,0 +1,87 @@
+.mask {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  padding: var(--screen-margin-y) var(--screen-margin-x);
+  mask-image: url("../../../../public/p/mask/mask.svg");
+  mask-repeat: no-repeat;
+  mask-size: 0px;
+  background: black;
+  color: white;
+  pointer-events: none;
+}
+
+.masked {
+  pointer-events: all;
+  margin: 0 -20px;
+  padding: 0 20px;
+  margin-bottom: -20px;
+  padding-bottom: 20px;
+}
+
+.bold {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+@media (min-width: 500px) {
+  .title {
+    width: max-content;
+  }
+}
+
+.layout {
+  :global(.public-blueprint) {
+    color: var(--yellow);
+  }
+
+  :global(.public-back) {
+    color: white;
+  }
+
+  :global(.public-categories) {
+    color: var(--gray-300);
+  }
+
+  :global(.public-appFooter) {
+    color: var(--gray-300);
+  }
+
+  // Assuming the category list is not too long...
+  :global(.public-dragLeft) {
+    display: none;
+  }
+
+  :global(.public-dragRight) {
+    display: none;
+  }
+}
+
+.error {
+  display: none;
+}
+
+.spanish {
+  margin-top: 16px;
+}
+
+/** Handle when devices has no cursor  (phone, etc.) */
+@media (pointer: none), (pointer: coarse) {
+  .error {
+    display: block;
+  }
+
+  .cursor {
+    display: none;
+  }
+
+  .spanish {
+    display: none;
+  }
+
+  .mask {
+    display: none;
+  }
+}

@@ -22,8 +22,8 @@ interface CursorAnimate {
   transition?: Transition;
 }
 
-function getCursorAnimateMappings(
-  cursorExtras: CursorExtras
+export function getCursorAnimateMappings(
+  cursorExtras: CursorExtras = {}
 ): Record<keyof typeof CursorState, CursorAnimate> {
   return {
     IDLE: {
@@ -92,6 +92,21 @@ function getCursorAnimateMappings(
         mixBlendMode: "normal",
         backgroundColor: "#ffffff",
         borderRadius: "0",
+      },
+    },
+    MASK: {
+      animate: {
+        width: 400,
+        height: 400,
+        opacity: 1,
+        mixBlendMode: "difference",
+        backgroundColor: "#000000",
+        borderRadius: "50%",
+      },
+      transition: {
+        backgroundColor: {
+          duration: 0,
+        },
       },
     },
   };

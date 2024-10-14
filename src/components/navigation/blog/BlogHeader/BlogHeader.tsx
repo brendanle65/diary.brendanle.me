@@ -29,7 +29,7 @@ export function BlogHeader({ className, withNotes }: BlogHeaderProps) {
     <header className={clsx("public-blogHeader", className)}>
       <nav className={styles.nav}>
         <Button
-          className={styles.button}
+          className={clsx("public-back", styles.button)}
           onClick={() => router.push("/")}
         >
           <ion-icon
@@ -41,7 +41,7 @@ export function BlogHeader({ className, withNotes }: BlogHeaderProps) {
 
         {withNotes && (
           <Button
-            className={clsx(styles.button, styles.note)}
+            className={clsx("public-toggle", styles.button, styles.note)}
             onClick={() => setIsNotesOn(!isNotesOn)}
           >
             <ion-icon
