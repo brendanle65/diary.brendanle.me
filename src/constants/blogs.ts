@@ -4,9 +4,10 @@ import { metadata as bluey } from "@pages/p/Bluey/Bluey";
 import { metadata as about } from "@pages/p/About/About";
 import { metadata as undeservia } from "@pages/p/Undeservia/Undeservia";
 import { metadata as puedo } from "@pages/p/Puedo/Puedo";
+import { metadata as pixels } from "@pages/p/Pixels/Pixels";
 
 /** An array containing the metadata for all blog posts. */
-export const BLOGS_METADATA = [vespa, bluey, about, undeservia, puedo];
+export const BLOGS_METADATA = [vespa, bluey, about, undeservia, puedo, pixels];
 
 /**
  * Articles' metadata grouped by their published date and year,

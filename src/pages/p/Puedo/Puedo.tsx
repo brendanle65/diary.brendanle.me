@@ -29,8 +29,6 @@ export const metadata: BlogMetadata = {
 const maskSize = getCursorAnimateMappings().MASK.animate.width;
 const idleSize = 0;
 
-// fix metadata
-
 /**
  * A web experiment for masking cursor effect that translates texts.
  *
