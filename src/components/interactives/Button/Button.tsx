@@ -6,7 +6,7 @@ import { withHover } from "../withHover/withHover";
  *
  * @component
  */
-function _Button(props) {
+function _Button(props: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return <button {...props} />;
 }
 

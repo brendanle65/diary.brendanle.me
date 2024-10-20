@@ -1,0 +1,20 @@
+.button {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 12px;
+  color: white;
+  background: #ef4390;
+  transition: all 0.3s ease-out;
+
+  :global(ion-icon) {
+    color: var(--yellow);
+    margin-right: 6px;
+    font-size: 14px;
+  }
+
+  &:hover {
+    background: #bc105d;
+  }
+}

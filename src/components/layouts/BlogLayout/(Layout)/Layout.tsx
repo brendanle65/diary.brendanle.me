@@ -14,7 +14,7 @@ import { sequence, setters } from "./Layout.animate";
 // import style
 import styles from "./Layout.module.scss";
 
-export type BlogHelmetProps = Pick<BlogMetadata, "categories" | "published" | "edited"> & {
+export type LayoutProps = Pick<BlogMetadata, "categories" | "published" | "edited"> & {
   /**
    * Optional custom class name for styling the blog layout.
    */
@@ -25,9 +25,6 @@ export type BlogHelmetProps = Pick<BlogMetadata, "categories" | "published" | "e
 
   /** Optional notes to render. */
   notes?: Note[];
-
-  /** Optional splash screen to run before rendering the page. */
-  splash?: ({ onMountReady }: { onMountReady: () => void }) => JSX.Element;
 
   /** Optional additional sticky element to be displayed alongside the main content. */
   aside?: () => JSX.Element;
@@ -53,12 +50,11 @@ export function Layout({
   edited,
   notes,
   aside: Aside,
-  splash: Splash,
   animation = {
     initial: setters,
     animate: sequence,
   },
-}: BlogHelmetProps) {
+}: LayoutProps) {
   const { scope, play, stop } = usePageAnimate(animation);
   const { isNotesOn } = useContext(appStateContext);
 

@@ -2,7 +2,12 @@
 import { useState } from "react";
 
 // import other
-import { BlogHelmetProps, Layout } from "./(Layout)/Layout";
+import { LayoutProps, Layout } from "./(Layout)/Layout";
+
+interface BlogLayoutProps extends LayoutProps {
+  /** Optional splash screen to run before rendering the page. */
+  splash?: ({ onMountReady }: { onMountReady: () => void }) => JSX.Element;
+}
 
 /**
  * Provides layout component for blogs and
@@ -10,12 +15,12 @@ import { BlogHelmetProps, Layout } from "./(Layout)/Layout";
  *
  * @layout
  */
-export function BlogLayout({ splash: Splash, ...rest }: BlogHelmetProps) {
+export function BlogLayout({ splash: Splash, ...rest }: BlogLayoutProps) {
   const [isBlogMounted, setIsBlogMounted] = useState(!Splash || false);
 
   return (
     <>
-      {Splash && !isBlogMounted && <Splash onMountReady={() => setIsBlogMounted(true)} />}
+      {Splash && <Splash onMountReady={() => setIsBlogMounted(true)} />}
 
       {isBlogMounted && <Layout {...rest} />}
     </>

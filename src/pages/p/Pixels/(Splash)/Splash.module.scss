@@ -5,10 +5,16 @@
   left: 0;
   top: 0;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(12, 1fr);
+  z-index: 9000;
+  pointer-events: none;
 }
 
 .block {
   margin-top: -1px; // prevents white line (gap) between blocks
-  background: black;
+  background: #ceb1be;
+}
+
+.block:nth-child(even) {
+  background: #e2dcde;
 }

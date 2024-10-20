@@ -1,9 +1,13 @@
+// import libraries
+import { useState } from "react";
+
 // import other
 import { BlogMetadata } from "@typings/blog";
 import { Category } from "@constants/categories";
 import { BlogHelmet } from "@components/seo";
 import { BlogLayout } from "@components/layouts";
 import { Splash } from "./(Splash)/Splash";
+import { PlayButton } from "@components/interactives";
 
 export const metadata: BlogMetadata = {
   title: "Pixels",
@@ -24,6 +28,8 @@ export const metadata: BlogMetadata = {
  * @page
  */
 export function Pixels() {
+  const [key, setKey] = useState(0);
+
   return (
     <>
       <BlogHelmet
@@ -38,16 +44,24 @@ export function Pixels() {
         published={metadata.published}
         edited={metadata.edited}
         splash={Splash}
+        animation={{}} // don't run any page animations
       >
         <article>
           <h1>{metadata.title}</h1>
 
           <p>
-            his name is Bluey. <br />
-            Bluey, the stuffed animal.
+            Liked that animation? <br />
+            Click this button to see it again: <br />
+            <br />
+            <PlayButton onClick={() => setKey(key + 1)} />
           </p>
         </article>
       </BlogLayout>
+
+      <Splash
+        key={key}
+        onMountReady={() => {}}
+      />
     </>
   );
 }

@@ -4,7 +4,7 @@ import { useLayoutEffect } from "react";
 
 export interface PageAnimateProps {
   initial?: StyleSetters; // styles to set before running animation sequence
-  animate: AnimationSequence;
+  animate?: AnimationSequence;
 }
 
 /**
@@ -28,8 +28,10 @@ export function usePageAnimate({ initial, animate }: PageAnimateProps) {
   }, []);
 
   const run = async () => {
-    controls = play(animate);
-    await controls;
+    if (animate) {
+      controls = play(animate);
+      await controls;
+    }
   };
 
   const stop = () => {

@@ -1,62 +1,66 @@
-// todo - see https://pixel-transition.webflow.io
-
 // import libraries
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-
-// import other
-import { usePageAnimate } from "@hooks/usePageAnimate";
-import { sequence } from "./Splash.animate";
 
 // import styles
 import styles from "./Splash.module.scss";
 
-// randomly animate in...
+const GRID_LENGTH = 144;
+const grid = Array.from({ length: GRID_LENGTH }, (_, i) => i + 1).sort(() => Math.random() - 0.5); // randomly shuffle array
 
-export function Splash() {
-  const { scope, play, stop } = usePageAnimate({ animate: sequence });
+function getColor(idx) {
+  if (idx % 4 === 1) {
+    return "rgb(58, 8, 32)";
+  } else if (idx % 4 === 2) {
+    return "rgb(236, 91, 41)";
+  } else if (idx % 4 === 3) {
+    return "rgb(184, 102, 250)";
+  } else {
+    return "rgb(199, 228, 16)";
+  }
+}
 
+const variants = {
+  visible: { opacity: 1 },
+  hidden: { opacity: 0 },
+};
+
+/**
+ * A pixelated splash page heavily inspired by https://techspeed.com.
+ *
+ * @returns {React.ReactElement} A splash page.
+ * @splash
+ */
+export function Splash({ onMountReady }) {
+  const [animate, setAnimate] = useState("visible");
+  const timerRef = useRef<NodeJS.Timeout>(null);
+
+  // Clear the interval when the component unmounts
   useEffect(() => {
-    // play();
-
-    return () => stop();
+    return () => clearTimeout(timerRef.current);
   }, []);
 
-  function shuffleArray(array) {
-    for (var i = array.length - 1; i >= 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-  }
-
-  const a = new Array(100).fill(0);
-  shuffleArray(a);
-
   return (
-    <div
-      ref={scope}
-      className={styles.container}
-    >
-      {Array.from({ length: 100 }, (_, i) => i + 1)
-        .sort(() => Math.random() - 0.5)
-        .map((val, idx) => (
-          <motion.div
-            key={idx}
-            className={styles.block}
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 0 }}
-            transition={{ delay: 0.009 * val, duration: 0 }}
-          ></motion.div>
-        ))}
+    <div className={styles.container}>
+      {grid.map((val, idx) => (
+        <motion.div
+          key={idx}
+          style={{ background: getColor(val) }}
+          className={styles.block}
+          variants={variants}
+          initial="hidden"
+          animate={animate}
+          onAnimationComplete={() => {
+            if (idx >= GRID_LENGTH - 1) {
+              timerRef.current = setTimeout(() => {
+                setAnimate("hidden");
+                onMountReady();
+              }, 0.7 * 1000);
+            }
+          }}
+          transition={{ delay: 0.0045 * val, duration: 0 }}
+        ></motion.div>
+      ))}
     </div>
   );
 }
-
-// we could also shuffle array instead...
-// maybe wait for exit animation instead... - wrap in AnimatePresence
-// or maybe trigger animation manuelly inside compoennt
-
-// todo: add button to play again...
-// todo: update stuff based on session storage - when runs intially...
